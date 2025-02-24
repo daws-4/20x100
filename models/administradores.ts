@@ -1,7 +1,13 @@
 import { Schema, model, models } from "mongoose";
+import { nanoid } from "nanoid";
+
 
 const administradores = new Schema(
   {
+    _id: {
+      type: String,
+      default: () => nanoid(),
+    },
     username: {
       type: String,
       required: true,
@@ -22,7 +28,8 @@ const administradores = new Schema(
   },
   {
     timestamps: true,
-  }
+     _id: false 
+  },
 );
 
 export default models.administradores ||
