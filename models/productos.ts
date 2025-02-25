@@ -1,6 +1,11 @@
 import { Schema, model, models } from "mongoose";
+import { nanoid } from "nanoid";
 const productos = new Schema(
   {
+    _id: {
+      type: String,
+      default: () => nanoid(),
+    },
     nombre: {
       type: String,
       unique: true,
@@ -30,6 +35,7 @@ const productos = new Schema(
   },
   {
     timestamps: true,
+    id: false,
   }
 );
 
